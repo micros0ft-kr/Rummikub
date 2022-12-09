@@ -14,7 +14,7 @@ public class SelectUserButton extends JButton implements ActionListener {
     private int user_num; // 루미큐브 유저 수
 
     private SelectUserGUI select_gui;
-    private UserInfoModel userInfo_model; // 루미큐브 유저 정보 객체
+    private UserInfoModel[] userInfo_model; // 루미큐브 유저 정보 객체
 
     // 생성 메소드
     public SelectUserButton(String btn_text, int userNum, SelectUserGUI gui){
@@ -33,7 +33,8 @@ public class SelectUserButton extends JButton implements ActionListener {
 
         select_gui.setVisible(false);
 
-        new UserInfoGUI();
+        userInfo_model = new UserInfoModel[user_num]; // 유저 수만큼 UserInfoModel 객체 생성
+        new UserInfoGUI(user_num, userInfo_model);
         /*
          *  UserInfoGUI로 전환
          *      UserInfoGUI [userNum] 생성

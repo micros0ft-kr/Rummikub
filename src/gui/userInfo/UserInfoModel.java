@@ -5,10 +5,10 @@ import gui.model.CardModel;
 public class UserInfoModel {
     
     // 필드변수 정의
-    public int user_num;
-    public String name;
-    public int rank;
-    public int sequence;
+    // public int user_num; // 루미큐브 유저 수
+    public String name; // 유저 이름
+    public int rank; // 유저 랭크
+    public int sequence; // 유저 순서
     public boolean user_status; // 유저상태 체크
 
     private CardModel[][] user_deck; // 유저 루미큐브 카드덱
@@ -18,15 +18,17 @@ public class UserInfoModel {
 
 
     // 생성 메소드
-    public UserInfoModel(String userName, int userNum){
+    public UserInfoModel(String userName, int user_sequence){
         name = userName; // 유저 이름
-        user_num = userNum; // 루미큐브 유저 수
+        sequence = user_sequence; // 유저 순서
+        // user_num = userNum; // 루미큐브 유저 수
         rank = 0; // 유저 랭크 Default 0
 
         user_deck = new CardModel[2][20];
         card_count = 0;
         remember_user_deck = new CardModel[2][20];
         rememberCard_count = 0;
+        user_status = true; // 유저 상태 [ture : 유저 게임 진행 중, false : 유저 게임 끝]
 
     }
 
