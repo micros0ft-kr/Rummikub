@@ -15,12 +15,20 @@ public class RummikubGUI extends JFrame {
     
     // 필드변수 정의
     private JButton rummikub_board_btns[][]; // 루미큐브 보드판 버튼
-    private JLabel user_sequence_text; // 루미큐브 유저 순서 텍스트
+
+    private JLabel user_nowSequence_text; // 루미큐브 현재 순서 텍스트
+    private JLabel user_nextSequence_text; // 루미큐브 유저 순서 텍스트
+    
     private JButton rummikub_userBoard_btns[][]; // 루미큐브 유저 보드판 버튼
+
+    // GUI 관리 필드변수
+    private int user_idx;
 
 
     // 생성 메소드
     public RummikubGUI(){
+
+        user_idx = 1;
 
         rummikub_board_btns = new RummikubBoardButton[6][18]; // 루미큐브 보드판 버튼
         rummikub_userBoard_btns = new RummikubUserBoardButton[2][20]; // 루미큐브 유저 보드판 버튼
@@ -35,8 +43,8 @@ public class RummikubGUI extends JFrame {
 
         //BorderLayout - NORTH
         // RummikubGUI Title 텍스트
-        JLabel title_text = new JLabel("김동욱의 순서", SwingConstants.CENTER);
-        title_text.setFont(new Font("Aharoni 굵게", Font.BOLD, 30));
+        user_nowSequence_text = new JLabel("김동욱의 순서", SwingConstants.CENTER);
+        user_nowSequence_text.setFont(new Font("Aharoni 굵게", Font.BOLD, 30));
 
 
 
@@ -80,12 +88,12 @@ public class RummikubGUI extends JFrame {
         submit_btn.setPreferredSize(new Dimension(150, 55)); // 버튼 크기 설정
 
         // 유저 순서 텍스트
-        user_sequence_text = new JLabel("다음순서 : 조현호");
-        user_sequence_text.setFont(new Font("Aharoni 굵게", Font.BOLD, 20));
+        user_nextSequence_text = new JLabel("다음순서 : 조현호");
+        user_nextSequence_text.setFont(new Font("Aharoni 굵게", Font.BOLD, 20));
 
         // 제출 & 순서 텍스트 패널 요소 add
         p_submitBtn_sequence.add(submit_btn);
-        p_submitBtn_sequence.add(user_sequence_text);
+        p_submitBtn_sequence.add(user_nextSequence_text);
         p_submitBtn_sequence.setBorder(BorderFactory.createEmptyBorder(30,160,30,0)); // 패널 마진 주기
 
         // 유저 카드 덱 버튼 패널 - SOUTH 패널 Part 2.
@@ -110,7 +118,7 @@ public class RummikubGUI extends JFrame {
         /*
          * 컨테이너 요소 add
          */
-        cp.add(title_text, BorderLayout.NORTH);
+        cp.add(user_nowSequence_text, BorderLayout.NORTH);
         cp.add(p_board_btn, BorderLayout.CENTER);
         cp.add(p_submitBtn_sequence_userBoardBtn, BorderLayout.SOUTH);
 
@@ -118,7 +126,7 @@ public class RummikubGUI extends JFrame {
 
 
 
-        
+
         setTitle("모두의 루미큐브");
         setSize(850,700);
         setVisible(true);
@@ -133,6 +141,18 @@ public class RummikubGUI extends JFrame {
     // 게임 진행하며 gui 업데이트 메소드
     public void gui_update(){
 
+
+        // 현재 순서 Title 텍스트 업데이트
+        
+
+        // 루미큐브 필드 보드판 업데이트
+
+
+        // 다음 순서 텍스트 업데이트
+
+
+        // 루미큐브 유저덱 업데이트
+        
 
     }
 
