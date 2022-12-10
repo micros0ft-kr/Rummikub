@@ -119,16 +119,16 @@ public class UserInfoGUI extends JFrame {
         // JTextField 값 초기화 해주기
         userName_textFiled.setText("");
 
-        // UserInfoCheckButton 객체 재생성
-        check_btn = new UserInfoCheckButton("확인", this, user_num, user_idx, user_info); // 체크 버튼 객체 재생성 - 유저 정보 카운트해서 저장
-        // 버튼색상 설정
-        check_btn.setBackground(Color.gray);
-        check_btn.setOpaque(true);
-        check_btn.setBorderPainted(false);
+        // // UserInfoCheckButton 객체 재생성
+        // check_btn = new UserInfoCheckButton("확인", this, user_num, user_idx, user_info); // 체크 버튼 객체 재생성 - 유저 정보 카운트해서 저장
+        // // 버튼색상 설정
+        // check_btn.setBackground(Color.gray);
+        // check_btn.setOpaque(true);
+        // check_btn.setBorderPainted(false);
         
-        check_btn.setFont(new Font("Aharoni 굵게", Font.BOLD, 20)); // 버튼 폰트 설정
-        check_btn.setSize(50, 50); // 버튼 텍스트 크기 설정
-        check_btn.setPreferredSize(new Dimension(200, 70)); // 버튼 크기 설정
+        // check_btn.setFont(new Font("Aharoni 굵게", Font.BOLD, 20)); // 버튼 폰트 설정
+        // check_btn.setSize(50, 50); // 버튼 텍스트 크기 설정
+        // check_btn.setPreferredSize(new Dimension(200, 70)); // 버튼 크기 설정
     
     }
 

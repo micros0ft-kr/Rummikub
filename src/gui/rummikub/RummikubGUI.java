@@ -22,13 +22,19 @@ public class RummikubGUI extends JFrame {
     private JButton rummikub_userBoard_btns[][]; // 루미큐브 유저 보드판 버튼
 
     // GUI 관리 필드변수
-    private int user_idx;
+    public int user_idx; // 유저 순서 관리 인덱스
+    public int board_btn_event; // 버튼 클릭 이벤트 관리변수
+    // public int user_btn_event;
+
+    public int board_row;
+    public int board_col;
 
 
     // 생성 메소드
     public RummikubGUI(){
 
         user_idx = 1;
+        board_btn_event = 0; // 게임 보드판 클릭이벤트 (2: 활성, 0,1 비활성화)
 
         rummikub_board_btns = new RummikubBoardButton[6][18]; // 루미큐브 보드판 버튼
         rummikub_userBoard_btns = new RummikubUserBoardButton[2][20]; // 루미큐브 유저 보드판 버튼
@@ -57,7 +63,7 @@ public class RummikubGUI extends JFrame {
 
         for(int row = 0; row < 6; row ++){
             for(int col = 0; col < 18; col ++){
-                rummikub_board_btns[row][col] = new RummikubBoardButton("");
+                rummikub_board_btns[row][col] = new RummikubBoardButton("",this, row, col);
                 p_board_btn.add(rummikub_board_btns[row][col]);
             }
         }
@@ -77,7 +83,7 @@ public class RummikubGUI extends JFrame {
         JPanel p_submitBtn_sequence = new JPanel(new FlowLayout(FlowLayout.CENTER, 200, 0));
         
         // 제출 버튼
-        JButton submit_btn = new RummikubSubmitButton("제출");
+        JButton submit_btn = new RummikubSubmitButton("제출", this);
         // 버튼색상 설정
         submit_btn.setBackground(Color.gray);
         submit_btn.setOpaque(true);
@@ -100,7 +106,7 @@ public class RummikubGUI extends JFrame {
         JPanel p_userBoard_btn = new JPanel(new GridLayout(2, 20, 5, 10));
         for(int row = 0; row < 2; row ++){
             for(int col = 0; col < 20; col ++){
-                rummikub_userBoard_btns[row][col] = new RummikubUserBoardButton("");
+                rummikub_userBoard_btns[row][col] = new RummikubUserBoardButton("", this, row, col);
                 p_userBoard_btn.add(rummikub_userBoard_btns[row][col]);
             }
         }
@@ -111,7 +117,6 @@ public class RummikubGUI extends JFrame {
         p_submitBtn_sequence_userBoardBtn.add(p_userBoard_btn, BorderLayout.CENTER);
 
         
-
 
 
 
@@ -138,6 +143,8 @@ public class RummikubGUI extends JFrame {
     }
 
 
+
+
     // 게임 진행하며 gui 업데이트 메소드
     public void gui_update(){
 
@@ -146,13 +153,25 @@ public class RummikubGUI extends JFrame {
         
 
         // 루미큐브 필드 보드판 업데이트
+        for(int row = 0; row < 6; row ++){
+            for(int col = 0; col < 18; col ++){
+                rummikub_board_btns[row][col].setText("");
+                rummikub_board_btns[row][col].setForeground(null);
 
+            }
+        }
 
         // 다음 순서 텍스트 업데이트
 
 
         // 루미큐브 유저덱 업데이트
-        
+        for(int row = 0; row < 2; row ++){
+            for(int col = 0; col < 20; col ++){
+                rummikub_userBoard_btns[row][col].setText("3");
+                rummikub_userBoard_btns[row][col].setForeground(Color.red);
+
+            }
+        }
 
     }
 
