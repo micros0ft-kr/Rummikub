@@ -57,7 +57,7 @@ public class UserSequenceResultGUI extends JFrame {
         // BorderLayout - SOUTH
         // 게임 시작 버튼
         JPanel p_start_btn = new JPanel(new FlowLayout()); // 버튼 패널 생성
-        JButton start_btn =  new UserSequenceResultButton("게임시작");
+        JButton start_btn =  new UserSequenceResultButton("게임시작", this, userNum, userInfo);
 
         // 버튼색상 설정
         start_btn.setBackground(Color.gray);

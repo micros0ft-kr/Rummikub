@@ -1,5 +1,7 @@
 package gui.model;
 
+import java.awt.*;
+
 public class CardModel {
 
     public static final String RED = "red";
@@ -7,11 +9,11 @@ public class CardModel {
     public static final String YELLOW = "yellow";
     public static final String BLUE = "blue";
 
-    public String color; //색깔
+    public Color color; //색깔
     public int num;  // 숫자
 
     // 생성 메소드
-    public CardModel(String Card_Color, int Card_Num) {
+    public CardModel(Color Card_Color, int Card_Num) {
         color = Card_Color;
         num = Card_Num;
     }
