@@ -79,7 +79,7 @@ public class FieldDeck {
 					j++;
 					
 					while(field[i][j] != null) {
-						if(checkColor(field[i][j].color()) != false || field[i][j+1].num() != same_num) return false;
+						if(checkColor(field[i][j].color()) != false || field[i][j].num() != same_num) return false;
 						
 						putColor(i,j);
 						card_count ++;
@@ -97,9 +97,10 @@ public class FieldDeck {
 	
 	//round가 1일때는 필드에 있는 카드가 선택되지 않아야함. 자신의 패에서 숫자합이 30이 넘도록
 	public boolean checkField_Rule_3() {
-		if(checkField_Rule_1() == true && checkField_Rule_2() == true) {
-			//if(자신이 누른 버튼의 위치를 받아와서 합이 30이상이면) return true; 
-		}
+		//if(자신이 누른 버튼의 위치를 받아와서 합이 30이상이고 
+			if(checkField_Rule_1() == true && checkField_Rule_2() == true) {
+				return true;
+			}
 		return false;
 	}
 	
