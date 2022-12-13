@@ -25,3 +25,4 @@ replay_pid*
 
 # 맥북의 쓰레기 파일
 .DS_Store
+/.metadata/
