@@ -29,7 +29,7 @@ public class StartGUI extends JFrame {
 
 
         // BorderLayout - CENTER
-        File boardImgFile = new File("Rummikub/src/gui/image/board-game.png");
+        File boardImgFile = new File("src/gui/image/board-game.png");
         BufferedImage boardImg = ImageIO.read(boardImgFile); // 이미지 파일 경로 예외처리 & 이미지 경로 받기
         ImageIcon boardImgIcon = new ImageIcon(boardImg); // 이미지 객체 생성
         Image getBoardImg = boardImgIcon.getImage(); // 이미지 가져오기

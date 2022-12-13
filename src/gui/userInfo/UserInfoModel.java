@@ -96,10 +96,10 @@ public class UserInfoModel {
      */
     public boolean checkLoseCount(){
         if(card_count >= 41){
-            return true;
+            return false;
         }
         else {
-            return false;
+            return true;
         }
     }
 
@@ -111,10 +111,10 @@ public class UserInfoModel {
      */
     public boolean checkWinCount(){
         if(card_count == 0){
-            return true;
+            return false;
         }
         else {
-            return false;
+            return true;
         }
     }
 
