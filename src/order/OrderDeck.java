@@ -78,6 +78,7 @@ public class OrderDeck {
 	//운영진 카드덱에서 (지정 받은) 유저 카드 한장 먹이기
 	public void addUserCardDeck(int n){
 		userinfo[n].receiveCard(Order_CardDeck[Idx_Order]);
+		Idx_Order++;
 	}
 	
 

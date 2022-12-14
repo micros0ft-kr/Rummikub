@@ -58,7 +58,7 @@ public class RummikubBoardButton extends JButton implements ActionListener {
         
         if(rummikub_gui.click_cnt == 1){
             // 게임 진행 전 유저 패 & 필드 복사
-            user_info[user_idx].rememberDeck();
+            user_info[user_idx - 1].rememberDeck();
             field_model.rememberDeck();
             
         }

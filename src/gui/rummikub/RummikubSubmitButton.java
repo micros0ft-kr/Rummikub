@@ -97,6 +97,7 @@ public class RummikubSubmitButton extends JButton implements ActionListener {
         }
         else{
             rummikub_gui.user_idx++;
+            // rummikub_gui.gui_update();
         }
         
         // 유저 순서 "활성화 된" 유저로 변경
@@ -108,6 +109,7 @@ public class RummikubSubmitButton extends JButton implements ActionListener {
             }
             else{
                 rummikub_gui.user_idx++;
+                rummikub_gui.gui_update();
             }
         }
 

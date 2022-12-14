@@ -196,18 +196,18 @@ public class RummikubGUI extends JFrame {
 
         // 다음 순서 텍스트 업데이트
         // 유저 순서 "활성화 된" 유저로 변경
-        int check_next_idx = user_idx;
-        while(user_info[check_next_idx].user_status == false){
+        // int check_next_idx = user_idx;
+        // while(user_info[check_next_idx].user_status == false){
 
-            if(check_next_idx == user_num + 1){
-                // 유저 순서 초기화
-                check_next_idx = 1;
-            }
-            else{
-                check_next_idx++;
-            }
-        }
-        user_nextSequence_text = new JLabel("다음 순서 : " + user_info[check_next_idx -1].name);
+        //     if(check_next_idx == user_num + 1){
+        //         // 유저 순서 초기화
+        //         check_next_idx = 1;
+        //     }
+        //     else{
+        //         check_next_idx++;
+        //     }
+        // }
+        // user_nextSequence_text = new JLabel("다음 순서 : " + user_info[check_next_idx -1].name);
 
 
         // 남은 타일 수 업데이트

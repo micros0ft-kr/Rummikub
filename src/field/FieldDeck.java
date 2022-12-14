@@ -50,7 +50,7 @@ public class FieldDeck {
 		// }
 
 		for(int i=0; i<field.length; i++){
-			System.arraycopy(field[i], 0, last_field[i], 0, field[0].length);
+			System.arraycopy(last_field[i], 0, field[i], 0, last_field[0].length);
 		}
 	}
 
