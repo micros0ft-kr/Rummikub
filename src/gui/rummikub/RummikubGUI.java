@@ -86,7 +86,7 @@ public class RummikubGUI extends JFrame {
 
         for(int row = 0; row < 6; row ++){
             for(int col = 0; col < 18; col ++){
-                rummikub_board_btns[row][col] = new RummikubBoardButton("",this, row, col, user_idx, fieldDeck_model, userInfo);
+                rummikub_board_btns[row][col] = new RummikubBoardButton("",this, row, col, fieldDeck_model, userInfo);
                 p_board_btn.add(rummikub_board_btns[row][col]);
             }
         }
@@ -137,7 +137,7 @@ public class RummikubGUI extends JFrame {
         JPanel p_userBoard_btn = new JPanel(new GridLayout(2, 20, 5, 10));
         for(int row = 0; row < 2; row ++){
             for(int col = 0; col < 20; col ++){
-                rummikub_userBoard_btns[row][col] = new RummikubUserBoardButton("", this, row, col, user_idx, user_info, fieldDeck_model);
+                rummikub_userBoard_btns[row][col] = new RummikubUserBoardButton("", this, row, col, user_info, fieldDeck_model);
                 p_userBoard_btn.add(rummikub_userBoard_btns[row][col]);
             }
         }
@@ -194,23 +194,10 @@ public class RummikubGUI extends JFrame {
             }
         }
 
-        // 다음 순서 텍스트 업데이트
-        // 유저 순서 "활성화 된" 유저로 변경
-        // int check_next_idx = user_idx;
-        // while(user_info[check_next_idx].user_status == false){
-
-        //     if(check_next_idx == user_num + 1){
-        //         // 유저 순서 초기화
-        //         check_next_idx = 1;
-        //     }
-        //     else{
-        //         check_next_idx++;
-        //     }
-        // }
-        // user_nextSequence_text = new JLabel("다음 순서 : " + user_info[check_next_idx -1].name);
-
-
         // 남은 타일 수 업데이트
+        orderDeck_num.setText("남은 타일 수 : " + (104 - orderDeck_model.Idx_Order));
+
+
 
         // 루미큐브 유저덱 업데이트
         for(int row = 0; row < 2; row ++){
@@ -229,6 +216,32 @@ public class RummikubGUI extends JFrame {
         }
 
 
+    }
+
+    public void gui_update_sequence(){
+        // 다음 순서 텍스트 업데이트
+        int next_idx = user_idx ; // 다음 순서 인덱스
+        System.out.println("현재 인덱스 : "+ user_idx + "다음 인덱스 : "+ next_idx);
+        if(next_idx == user_num){ // 다음 순서 인덱스 검사
+            next_idx = 1;
+        }
+        else{
+            next_idx++;
+        }
+
+        System.out.println("현재 인덱스 : "+ user_idx + "다음 인덱스 : "+ next_idx);
+
+        while(user_info[next_idx - 1].user_status == false){
+
+            if(next_idx + 1 == user_num){
+                next_idx = 1;
+            }
+            else{
+                next_idx++;
+            }
+        }
+        System.out.println("출력 , 다음 : "+ user_info[next_idx - 1].name);
+        user_nextSequence_text.setText("다음 순서 : " + user_info[next_idx - 1].name);
     }
 
 

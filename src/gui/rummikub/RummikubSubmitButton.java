@@ -98,7 +98,7 @@ public class RummikubSubmitButton extends JButton implements ActionListener {
         else{
             rummikub_gui.user_idx++;
             // rummikub_gui.gui_update();
-        }
+        }                                                                                                                                                                                                  
         
         // 유저 순서 "활성화 된" 유저로 변경
         while(user_info[rummikub_gui.user_idx - 1].user_status == false){
@@ -114,7 +114,7 @@ public class RummikubSubmitButton extends JButton implements ActionListener {
         }
 
 
-        // 게임 종료 체크
+        // 게임 종료 체크 - Chapter1. 유저 한명 남을 시 종료
         if(rummikub_gui.change_user_num == 1){
             // user_info[rummikub_gui.user_idx - 1].rank = 
             for(int i = 0; i<rummikub_gui.user_num; i++){
@@ -128,7 +128,13 @@ public class RummikubSubmitButton extends JButton implements ActionListener {
             rummikub_gui.setVisible(false);
             JOptionPane.showMessageDialog(null, "게임 종료요", "루미큐브 관리자", JOptionPane.WARNING_MESSAGE);
         }
+        // 게임 종료 체크 - Chapter2. 운영진 카드 덱 모두 소모
+        // else if(){
+
+        // }
+        System.out.println("user_idx:"+ rummikub_gui.user_idx);
         rummikub_gui.gui_update();
+        rummikub_gui.gui_update_sequence();
 
 
 

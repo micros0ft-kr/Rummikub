@@ -23,13 +23,13 @@ public class RummikubUserBoardButton extends JButton implements ActionListener {
     private UserInfoModel[] user_info;
     private FieldDeck field_model;
 
-    private int userIdx; // 유저 순서 인덱스
+
 
     // 생성 메소드
-    public RummikubUserBoardButton(String btn_num, RummikubGUI gui, int row, int col, int user_idx, UserInfoModel[] userInfo, FieldDeck field_m){
+    public RummikubUserBoardButton(String btn_num, RummikubGUI gui, int row, int col, UserInfoModel[] userInfo, FieldDeck field_m){
         super(btn_num);
 
-        userIdx = user_idx;
+        // userIdx = user_idx;
         rummikub_gui = gui;
         this_row = row;
         this_col = col;
@@ -54,10 +54,10 @@ public class RummikubUserBoardButton extends JButton implements ActionListener {
             }
             else {
             // 필드 카드 배치
-            field_model.field[rummikub_gui.board_row][rummikub_gui.board_col] = user_info[userIdx - 1].user_deck[this_row][this_col];
+            field_model.field[rummikub_gui.board_row][rummikub_gui.board_col] = user_info[rummikub_gui.user_idx - 1].user_deck[this_row][this_col];
 
             // 유저 카드 1개 필드 배치 - 지정된 카드 제거
-            user_info[userIdx - 1].submitCard(this_row, this_col);
+            user_info[rummikub_gui.user_idx - 1].submitCard(this_row, this_col);
             // System.out.println("두번째 클릭된 버튼의 row : " + this_row + "\t두번째 클릭된 버튼의 col : " + this_col + "  첫번째 클릭된 버튼의 row : " + rummikub_gui.board_row + "\t첫번째 클릭된 버튼의 col : " + rummikub_gui.board_col);            
             
             // 관리변수 초기화
@@ -66,8 +66,7 @@ public class RummikubUserBoardButton extends JButton implements ActionListener {
             }
         }
 
-        System.out.println("지나가라 지나가라");
-
+        
 
     }
 }

@@ -21,13 +21,12 @@ public class RummikubBoardButton extends JButton implements ActionListener {
 
     private int this_row; // 현재 버튼의 row
     private int this_col; // 현재 버튼의 col
-    private int user_idx;
     private FieldDeck field_model;
     private UserInfoModel[] user_info;
     
 
     // 생성 메소드
-    public RummikubBoardButton(String btn_num, RummikubGUI gui, int row, int col, int userIdx, FieldDeck field_m, UserInfoModel[] userInfo){
+    public RummikubBoardButton(String btn_num, RummikubGUI gui, int row, int col, FieldDeck field_m, UserInfoModel[] userInfo){
         super(btn_num);
 
         rummikub_gui = gui;
@@ -35,7 +34,6 @@ public class RummikubBoardButton extends JButton implements ActionListener {
         this_col = col;
         field_model = field_m;
         user_info = userInfo;
-        user_idx = userIdx;
 
         addActionListener(this);
     }
@@ -58,7 +56,7 @@ public class RummikubBoardButton extends JButton implements ActionListener {
         
         if(rummikub_gui.click_cnt == 1){
             // 게임 진행 전 유저 패 & 필드 복사
-            user_info[user_idx - 1].rememberDeck();
+            user_info[rummikub_gui.user_idx - 1].rememberDeck();
             field_model.rememberDeck();
             
         }
