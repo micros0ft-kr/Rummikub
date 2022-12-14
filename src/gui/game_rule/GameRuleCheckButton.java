@@ -39,10 +39,15 @@ public class GameRuleCheckButton extends JButton implements ActionListener {
         // GameRuleGUI 가리기
         gameRule_gui.setVisible(false);
 
+
+
         // RummikubGUI로 전환
         // TO DO. 객체 생성인자에 FieldDeck & OrderDeck 추가
-        new RummikubGUI(user_num, user_info);
+        FieldDeck field_m = new FieldDeck();
+        OrderDeck order_m = new OrderDeck(user_info, user_num); 
 
+        new RummikubGUI(user_num, user_info, order_m, field_m);
+        
 
     }
 

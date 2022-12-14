@@ -13,10 +13,10 @@ public class UserInfoModel {
     public int sequence; // 유저 순서
     public boolean user_status; // 유저상태 체크
 
-    private CardModel[][] user_deck; // 유저 루미큐브 카드덱
-    private int card_count; // 유저 루미큐브 카드 덱 갯수
-    private CardModel[][] remember_user_deck; // 유저 이전 턴 루미큐브 카드 덱 백업
-    private int rememberCard_count; // 유저 이전 턴 루미큐브 카드 덱 갯수 - 카드 덱 업데이트 하기 위해서 기록
+    public CardModel[][] user_deck; // 유저 루미큐브 카드덱
+    public int card_count; // 유저 루미큐브 카드 덱 갯수
+    public CardModel[][] remember_user_deck; // 유저 이전 턴 루미큐브 카드 덱 백업
+    public int rememberCard_count; // 유저 이전 턴 루미큐브 카드 덱 갯수 - 카드 덱 업데이트 하기 위해서 기록
 
 
     // 생성 메소드
@@ -70,24 +70,48 @@ public class UserInfoModel {
 
         if(row == 0){
             for(int i = col; i<19; i ++){
-                user_deck[0][col] = user_deck[0][col+1];
+                user_deck[0][i] = user_deck[0][i+1];
+                // System.out.println("col:"+col);
             }
             user_deck[0][19] = user_deck[1][0];
             for(int j = 0; j<19; j ++){
                 user_deck[1][j] = user_deck[1][j+1];
+                // System.out.println("col:"+col);
             }
+            
         }
 
         //row == 1
         else{
             for(int z = col; z<19; z ++){
-                user_deck[1][col] = user_deck[1][col+1];
+                user_deck[1][z] = user_deck[1][z+1];
             }
             if(col == 19){
                 // row = 1 col 19 일 때 처리
                 user_deck[1][col] = null;
             }
         }
+
+        // if(row == 0){
+        //     for(int i = col; i<19; i ++){
+        //         user_deck[0][col] = user_deck[0][col+1];
+        //     }
+        //     user_deck[0][19] = user_deck[1][0];
+        //     for(int j = 0; j<19; j ++){
+        //         user_deck[1][j] = user_deck[1][j+1];
+        //     }
+        // }
+
+        // //row == 1
+        // else{
+        //     for(int z = col; z<19; z ++){
+        //         user_deck[1][col] = user_deck[1][col+1];
+        //     }
+        //     if(col == 19){
+        //         // row = 1 col 19 일 때 처리
+        //         user_deck[1][col] = null;
+        //     }
+        // }
 
     }
 
