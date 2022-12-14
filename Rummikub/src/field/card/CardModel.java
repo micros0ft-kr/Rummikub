@@ -10,7 +10,7 @@ public class CardModel {
 
     private Color color; //무늬
     private int num;  	// 숫자
-
+ 
     public CardModel(Color Card_Color, int Card_Num) {
         color = Card_Color;
         num = Card_Num;
