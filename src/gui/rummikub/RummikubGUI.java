@@ -9,11 +9,15 @@ import java.awt.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import field.FieldDeck;
+import gui.userInfo.UserInfoModel;
+import order.OrderDeck;
+
 
 public class RummikubGUI extends JFrame {
     
     
-    // 필드변수 정의
+    // 필드변수 정의 - GUI 필드
     private JButton rummikub_board_btns[][]; // 루미큐브 보드판 버튼
 
     private JLabel user_nowSequence_text; // 루미큐브 현재 순서 텍스트
@@ -21,7 +25,9 @@ public class RummikubGUI extends JFrame {
     
     private JButton rummikub_userBoard_btns[][]; // 루미큐브 유저 보드판 버튼
 
-    // GUI 관리 필드변수
+    /* 
+     * GUI 관리 필드변수 
+    */
     public int user_idx; // 유저 순서 관리 인덱스
     public int board_btn_event; // 버튼 클릭 이벤트 관리변수
     // public int user_btn_event;
@@ -30,10 +36,25 @@ public class RummikubGUI extends JFrame {
     public int board_col;
 
 
-    // 생성 메소드
-    public RummikubGUI(){
+    /*
+     * Rummikub Model 클래스
+     */
+    private UserInfoModel[] user_info; // 루미큐브 유저 정보 모델 클래스
+    private OrderDeck orderDeck_model; // 운영진 카드덱 생성 & 관리 클래스
+    private FieldDeck fieldDeck_model; // 필드덱 생성 & 관리 클래스
+    private int user_num; // 루미큐브 유저 수
 
-        user_idx = 1;
+    // 생성 메소드
+    public RummikubGUI(int userNum, UserInfoModel[] userInfo){
+
+
+        
+        orderDeck_model = new OrderDeck(user_info, user_num);
+        fieldDeck_model = new FieldDeck();
+        user_num = userNum;
+        user_info = userInfo;
+
+        user_idx = 1; // 유저 순서 인덱스 [초기 설정 : 1]
         board_btn_event = 0; // 게임 보드판 클릭이벤트 (2: 활성, 0,1 비활성화)
 
         rummikub_board_btns = new RummikubBoardButton[6][18]; // 루미큐브 보드판 버튼
@@ -63,7 +84,7 @@ public class RummikubGUI extends JFrame {
 
         for(int row = 0; row < 6; row ++){
             for(int col = 0; col < 18; col ++){
-                rummikub_board_btns[row][col] = new RummikubBoardButton("",this, row, col);
+                rummikub_board_btns[row][col] = new RummikubBoardButton("",this, row, col, fieldDeck_model);
                 p_board_btn.add(rummikub_board_btns[row][col]);
             }
         }
@@ -83,7 +104,7 @@ public class RummikubGUI extends JFrame {
         JPanel p_submitBtn_sequence = new JPanel(new FlowLayout(FlowLayout.CENTER, 200, 0));
         
         // 제출 버튼
-        JButton submit_btn = new RummikubSubmitButton("제출", this);
+        JButton submit_btn = new RummikubSubmitButton("제출", this, user_info, fieldDeck_model, orderDeck_model);
         // 버튼색상 설정
         submit_btn.setBackground(Color.gray);
         submit_btn.setOpaque(true);
@@ -106,7 +127,7 @@ public class RummikubGUI extends JFrame {
         JPanel p_userBoard_btn = new JPanel(new GridLayout(2, 20, 5, 10));
         for(int row = 0; row < 2; row ++){
             for(int col = 0; col < 20; col ++){
-                rummikub_userBoard_btns[row][col] = new RummikubUserBoardButton("", this, row, col);
+                rummikub_userBoard_btns[row][col] = new RummikubUserBoardButton("", this, row, col, user_info, fieldDeck_model);
                 p_userBoard_btn.add(rummikub_userBoard_btns[row][col]);
             }
         }
@@ -127,7 +148,7 @@ public class RummikubGUI extends JFrame {
         cp.add(p_board_btn, BorderLayout.CENTER);
         cp.add(p_submitBtn_sequence_userBoardBtn, BorderLayout.SOUTH);
 
-
+        System.out.println("123");
 
 
 

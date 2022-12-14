@@ -3,6 +3,7 @@ package gui.user_sequence;
 import javax.swing.JButton;
 
 import gui.game_rule.GameRuleGUI;
+import gui.rummikub.RummikubGUI;
 import gui.select_user.SelectUserGUI;
 import gui.userInfo.UserInfoModel;
 
@@ -39,6 +40,7 @@ public class UserSequenceResultButton extends JButton implements ActionListener 
          */
         sequence_gui.setVisible(false);
         new GameRuleGUI(user_num, user_info);
+
 
 
     }

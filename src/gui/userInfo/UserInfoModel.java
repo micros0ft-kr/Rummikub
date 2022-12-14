@@ -1,6 +1,8 @@
 package gui.userInfo;
 
-import gui.model.CardModel;
+import order.CardModel;
+
+// import gui.model.CardModel;
 
 public class UserInfoModel {
     

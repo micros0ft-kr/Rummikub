@@ -1,6 +1,7 @@
 package field;
 import java.awt.*;
-import field.card.CardModel;
+
+import order.CardModel;
 
 public class FieldDeck {
 	

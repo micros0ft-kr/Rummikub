@@ -2,10 +2,12 @@ package gui.game_rule;
 
 import javax.swing.JButton;
 
+import field.FieldDeck;
 import gui.rummikub.RummikubGUI;
 import gui.select_user.SelectUserGUI;
 import gui.userInfo.UserInfoModel;
 import gui.user_sequence.UserSequenceResultGUI;
+import order.OrderDeck;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,7 +40,8 @@ public class GameRuleCheckButton extends JButton implements ActionListener {
         gameRule_gui.setVisible(false);
 
         // RummikubGUI로 전환
-        new RummikubGUI();
+        // TO DO. 객체 생성인자에 FieldDeck & OrderDeck 추가
+        new RummikubGUI(user_num, user_info);
 
 
     }

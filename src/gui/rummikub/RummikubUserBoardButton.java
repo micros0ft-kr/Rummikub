@@ -3,6 +3,7 @@ package gui.rummikub;
 import java.awt.*;
 import javax.swing.JButton;
 
+import field.FieldDeck;
 import gui.select_user.SelectUserGUI;
 import gui.userInfo.UserInfoModel;
 import gui.user_sequence.UserSequenceResultGUI;
@@ -18,14 +19,18 @@ public class RummikubUserBoardButton extends JButton implements ActionListener {
     private RummikubGUI rummikub_gui;
     private int this_row;
     private int this_col;
+    private UserInfoModel[] user_info;
+    private FieldDeck field_model;
 
     // 생성 메소드
-    public RummikubUserBoardButton(String btn_num, RummikubGUI gui, int row, int col){
+    public RummikubUserBoardButton(String btn_num, RummikubGUI gui, int row, int col, UserInfoModel[] userInfo, FieldDeck field_m){
         super(btn_num);
 
         rummikub_gui = gui;
         this_row = row;
         this_col = col;
+        user_info = userInfo;
+        field_model = field_m;
 
         addActionListener(this);
     }
