@@ -5,6 +5,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import field.FieldDeck;
+import gui.game_over.GameOverGUI;
 import gui.select_user.SelectUserGUI;
 import gui.userInfo.UserInfoModel;
 import gui.user_sequence.UserSequenceResultGUI;
@@ -45,14 +46,21 @@ public class RummikubSubmitButton extends JButton implements ActionListener {
     // 액션 리스너
     public void actionPerformed(ActionEvent e) {
         
+        rummikub_gui.click_cnt++;
         
+        if(rummikub_gui.click_cnt == 1){
+            // 게임 진행 전 유저 패 & 필드 복사
+            user_info[rummikub_gui.user_idx - 1].rememberDeck();
+            field_model.rememberDeck();
+            
+        }
         rummikub_gui.click_cnt = 0; // 유저 패 & 필드 덱 복제 이벤트 초기화
 
         
         /*
          * 조건 검사  - 1 & 2
          */
-        if(field_model.checkField()){
+        if(field_model.checkField()&&field_model.checkField_null()){
 
             // 조건 검사 통과
             JOptionPane.showMessageDialog(null, user_info[rummikub_gui.user_idx - 1].name + "님의 필드 배치 성공입니다.", "루미큐브 관리자", JOptionPane.INFORMATION_MESSAGE);
@@ -114,6 +122,9 @@ public class RummikubSubmitButton extends JButton implements ActionListener {
         }
 
 
+
+
+
         // 게임 종료 체크 - Chapter1. 유저 한명 남을 시 종료
         if(rummikub_gui.change_user_num == 1){
             // user_info[rummikub_gui.user_idx - 1].rank = 
@@ -126,15 +137,20 @@ public class RummikubSubmitButton extends JButton implements ActionListener {
 
             // 게임 종료 GUI 전환
             rummikub_gui.setVisible(false);
-            JOptionPane.showMessageDialog(null, "게임 종료요", "루미큐브 관리자", JOptionPane.WARNING_MESSAGE);
+            new GameOverGUI(rummikub_gui.user_num, user_info);
+            // JOptionPane.showMessageDialog(null, user_info[1], "루미큐브 관리자", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            // change
+            rummikub_gui.gui_update();
+            rummikub_gui.gui_update_sequence();
         }
         // 게임 종료 체크 - Chapter2. 운영진 카드 덱 모두 소모
         // else if(){
 
         // }
         System.out.println("user_idx:"+ rummikub_gui.user_idx);
-        rummikub_gui.gui_update();
-        rummikub_gui.gui_update_sequence();
+
 
 
 

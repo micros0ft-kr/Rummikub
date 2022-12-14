@@ -156,25 +156,25 @@ public class FieldDeck {
 		}
 		return true;
 	}
-	
-	// public boolean checkField_null() {
-	// 	int n=108;
-	// 	for(int i=0; i<6;i++) {
-	// 	   for(int j=0; j<18; j++) {
-	// 		  if(field[i][j] == null) {
-	// 			 n--;
-	// 		  }
+	//안 돌아가면 ㅇ ㅒ 지우기
+	public boolean checkField_null() {
+		int n=108;
+		for(int i=0; i<6;i++) {
+		   for(int j=0; j<18; j++) {
+			  if(field[i][j] == null) {
+				 n--;
+			  }
 			  
-	// 	   }
-	// 	}
-	// 	System.out.println(n);
-	// 	if(n==0) {
-	// 	   return false;
-	// 	}
-	// 	else {
-	// 	   return true;
-	// 	}
-	//  }
+		   }
+		}
+		System.out.println(n);
+		if(n==0) {
+		   return false;
+		}
+		else {
+		   return true;
+		}
+	 }
 
 	//겹치는 색깔이 있는지 검사
 	public boolean checkColor(Color color) {

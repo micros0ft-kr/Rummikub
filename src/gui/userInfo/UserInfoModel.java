@@ -44,6 +44,8 @@ public class UserInfoModel {
      * To DO 1. 유저 카드 한장 받기
      *  운영진 카드덱 클래스에서 호출 (운영진 덱에서 한장 받음)
      */
+
+     // 수정 - Change
     public void receiveCard(CardModel input_card){
         
         // 유저 카드 수 한장 증가
@@ -53,9 +55,13 @@ public class UserInfoModel {
         if (card_count / 21 == 0){
             user_deck[0][card_count - 1] = input_card;
         }
-        // count 21 ~ 40
-        else {
+        // count 21 ~ 39
+        else if(card_count < 40) {
             user_deck[1][(card_count % 20) - 1] = input_card;
+        }
+        // count 40
+        else{
+            user_deck[1][19] = input_card;
         }
     }
 
@@ -78,7 +84,7 @@ public class UserInfoModel {
                 user_deck[1][j] = user_deck[1][j+1];
                 // System.out.println("col:"+col);
             }
-            
+
         }
 
         //row == 1

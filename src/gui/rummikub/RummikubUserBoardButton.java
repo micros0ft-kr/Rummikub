@@ -63,19 +63,19 @@ public class RummikubUserBoardButton extends JButton implements ActionListener {
             // 관리변수 초기화
             rummikub_gui.gui_update();
             
-            System.out.println("============\n 필드 유저 클릭시 현재필드");
-            for(int i = 0; i<6; i++){
-                for(int j = 0; j<18; j++){
-                    if(field_model.field[i][j]==null){
-                        System.out.print(field_model.field[i][j]+ " ");
-                    }
-                    else{
-                        System.out.print(field_model.field[i][j].num+ " ");
-                    }
-                }
-                System.out.print("\n");
-            }
-            System.out.println("========");
+            // System.out.println("============\n 필드 유저 클릭시 현재필드");
+            // for(int i = 0; i<6; i++){
+            //     for(int j = 0; j<18; j++){
+            //         if(field_model.field[i][j]==null){
+            //             System.out.print(field_model.field[i][j]+ " ");
+            //         }
+            //         else{
+            //             System.out.print(field_model.field[i][j].num+ " ");
+            //         }
+            //     }
+            //     System.out.print("\n");
+            // }
+            // System.out.println("========");
             rummikub_gui.board_btn_event = 0;
             }
         }
