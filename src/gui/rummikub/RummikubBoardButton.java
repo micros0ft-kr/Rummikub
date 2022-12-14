@@ -74,6 +74,12 @@ public class RummikubBoardButton extends JButton implements ActionListener {
             rummikub_gui.board_btn_event = 0;
             rummikub_gui.gui_update();
 
+            // or(int i = 0; i<6; i++){
+            //     for(int j = 0; j<18; j++){
+
+            //     }
+            // }
+
         }
         else{
             rummikub_gui.board_row = this_row;
