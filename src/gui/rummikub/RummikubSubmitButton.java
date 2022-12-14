@@ -60,7 +60,7 @@ public class RummikubSubmitButton extends JButton implements ActionListener {
         /*
          * 조건 검사  - 1 & 2
          */
-        if(field_model.checkField()&&field_model.checkField_null()){
+        if(field_model.checkField()&&field_model.checkField_null()&&compare_same()){
 
             // 조건 검사 통과
             JOptionPane.showMessageDialog(null, user_info[rummikub_gui.user_idx - 1].name + "님의 필드 배치 성공입니다.", "루미큐브 관리자", JOptionPane.INFORMATION_MESSAGE);
@@ -183,4 +183,25 @@ public class RummikubSubmitButton extends JButton implements ActionListener {
 
 
     }
+
+
+    /* 현재 필드와 패와 턴 시작전 복사한 필드 패 비교 
+      * true : 다름
+      * false : 같음
+      */
+      public boolean compare_same() {
+        for(int i=0; i<6; i++) {
+           for(int j=0; j<18; j++) {
+              if((field_model.field[i][j]!=null && field_model.last_field[i][j] ==null) ||(field_model.field[i][j]==null && field_model.last_field[i][j] !=null)) {
+                 return true;
+             }
+              else if(field_model.field[i][j]!=null && field_model.last_field[i][j] !=null ) {
+                 if((field_model.field[i][j].num != field_model.last_field[i][j].num)||(field_model.field[i][j].color != field_model.last_field[i][j].color)) {
+                    return true;
+                 }
+             }
+           }
+        }
+        return false;
+     }
 }
