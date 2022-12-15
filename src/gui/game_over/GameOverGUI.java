@@ -40,14 +40,14 @@ public class GameOverGUI extends JFrame {
         JPanel p_rank = new JPanel(new GridLayout(userNum, 1, 20, 20));
         for(int i = 0; i < userNum; i ++){
             int j = 0;
-            while(userInfo[j].rank == i + 1){
+            while(userInfo[j].rank != i + 1){
                 j++;
             }
             rank_JLabel[i] = new JLabel(Integer.toString(userInfo[j].rank)+" 등   "+userInfo[j].name, SwingConstants.CENTER);
             rank_JLabel[i].setFont(new Font("Aharoni 굵게", Font.BOLD, 30));
         }
 
-        for(int i = userNum -1; i > -1; i --){
+        for(int i = 0; i < userNum; i ++){
             p_rank.add(rank_JLabel[i]);
         }
         cp.add(p_rank, BorderLayout.CENTER);
